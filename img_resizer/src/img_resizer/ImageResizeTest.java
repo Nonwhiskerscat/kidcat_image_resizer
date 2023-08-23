@@ -18,7 +18,12 @@ public class ImageResizeTest extends fileReader {
 
     
     public static void main(String[] args) throws IOException  {
-        
+    	
+        File thumnail_file = new File(imgPathVO.getThumnailPath());
+        File preview_file = new File(imgPathVO.getPreviewPath());
+        fileCreater(thumnail_file);
+        fileCreater(preview_file);
+       
         HashMap<String, String> img_map = new HashMap<String, String>();
         List img_path = new ArrayList<>();
         
@@ -28,6 +33,8 @@ public class ImageResizeTest extends fileReader {
         	for(File file : list) {
                 img_map.put(file.getName(), getFileExt(file.getPath()));
             }
+        	
+
         	
             for (Entry<String, String> entrySet : img_map.entrySet()) {
                 

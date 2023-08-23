@@ -19,7 +19,6 @@ public class fileReader {
         List<File> resultList = new ArrayList<File>(); //이미지 파일을 저장할 리스트 생성
         
          //지정한 이미지폴더가 존재 할지 않을경우 빈 리스트 반환.
-        System.out.println("파일존재 여부: "+file.exists());
         if(!file.exists()) return resultList;
         
         File[] list = file.listFiles(new FileFilter() { //원하는 파일만 가져오기 위해 FileFilter정의
@@ -95,5 +94,22 @@ public class fileReader {
         
         return dirName;
     }
+    
+    // 해당 경로에 파일이 누락되어 있을 경우, 자동으로 파일 생성
+    public static void fileCreater(File target) {
+    	if(!target.exists()) {
+    		try {
+        		target.mkdir();
+    		}
+    		catch(Exception e) {
+    			e.getStackTrace();
+    		}
+    	}
+    	
+    	else {
+    		// 이미 폴더가 생성된 경우
+    	}
+    }
+    
 }
 
