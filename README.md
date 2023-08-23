@@ -1,0 +1,1 @@
+# kidcat_image_resizer
